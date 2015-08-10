@@ -1,0 +1,52 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: Ansible
+scopeName: source.ansible
+fileTypes: []
+uuid: fbfde362-bbb1-4d7d-b09d-9dce71c9bd40
+
+patterns:
+- match: ^\s*((#).*)
+  captures:
+    '1': {name: comment.line.number-sign.ansible}
+    '2': {name: punctuation.definition.comment.line.ansible}
+
+- name: string.quoted.double.ansible
+  begin: \"
+  end: \"
+  patterns:
+    - include: '#variable'
+
+- name: string.quoted.single.ansible
+  begin: \'
+  end: \'
+  patterns:
+    - include: '#variable'
+
+- include: '#variable'
+
+- name: constant.language.ansible
+  match: \b(?:True|False|yes|no|None)\b
+
+- name: keyword.operator.ansible
+  match: \b(?:not)\b
+  
+- match: ^\s*(?:- )?(name|include):\s+(.*)$
+  captures:
+    '1': {name: keyword.other.ansible}
+    '2': {name: entity.name.function.ansible}
+
+- match: ^\s*(?:- )?(?!name|include)(\w+):\s
+  captures:
+    '1': {name: keyword.other.ansible}
+
+- match: (\w+)=
+  captures:
+    '1': {name: entity.other.attribute-name.ansible}
+
+repository:
+  variable:
+    patterns:
+    - name: variable.other.ansible
+      match: (\{\{\s*[^\}]+\s*\}\})|(\$\{[^\}]+\})
+...
