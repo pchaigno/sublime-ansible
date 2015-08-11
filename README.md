@@ -1,4 +1,4 @@
-# Ansible syntax highlighting for Sublime Text
+# Syntax highlighting for Ansible
 
 This package provides syntax highlighting for Sublime Text 2 and 3.
 
