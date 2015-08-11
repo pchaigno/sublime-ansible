@@ -27,38 +27,12 @@
 			<string>^\s*((#).*)</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>\"</string>
-			<key>end</key>
-			<string>\"</string>
-			<key>name</key>
-			<string>string.quoted.double.ansible</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#variable</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
-			<key>begin</key>
-			<string>\'</string>
-			<key>end</key>
-			<string>\'</string>
-			<key>name</key>
-			<string>string.quoted.single.ansible</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#variable</string>
-				</dict>
-			</array>
+			<key>include</key>
+			<string>source.ansible.jinja</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#variable</string>
+			<string>#strings</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -116,15 +90,39 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>variable</key>
+		<key>strings</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>match</key>
-					<string>(\{\{\s*[^\}]+\s*\}\})|(\$\{[^\}]+\})</string>
+					<key>begin</key>
+					<string>\"</string>
+					<key>end</key>
+					<string>\"|$</string>
 					<key>name</key>
-					<string>variable.other.ansible</string>
+					<string>string.quoted.double.ansible</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.jinja.ansible</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\'</string>
+					<key>end</key>
+					<string>\'|$</string>
+					<key>name</key>
+					<string>string.quoted.single.ansible</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>source.jinja.ansible</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>

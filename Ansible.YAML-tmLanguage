@@ -11,19 +11,9 @@ patterns:
     '1': {name: comment.line.number-sign.ansible}
     '2': {name: punctuation.definition.comment.line.ansible}
 
-- name: string.quoted.double.ansible
-  begin: \"
-  end: \"
-  patterns:
-    - include: '#variable'
+- include: source.ansible.jinja
 
-- name: string.quoted.single.ansible
-  begin: \'
-  end: \'
-  patterns:
-    - include: '#variable'
-
-- include: '#variable'
+- include: '#strings'
 
 - name: constant.language.ansible
   match: \b(?:True|False|yes|no|None)\b
@@ -45,8 +35,17 @@ patterns:
     '1': {name: entity.other.attribute-name.ansible}
 
 repository:
-  variable:
+  strings:
     patterns:
-    - name: variable.other.ansible
-      match: (\{\{\s*[^\}]+\s*\}\})|(\$\{[^\}]+\})
+    - name: string.quoted.double.ansible
+      begin: \"
+      end: \"|$
+      patterns:
+        - include: source.jinja.ansible
+
+    - name: string.quoted.single.ansible
+      begin: \'
+      end: \'|$
+      patterns:
+        - include: source.jinja.ansible
 ...
