@@ -29,13 +29,13 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(\{\{)\s*([a-zA-z]\w+)\s*(\}\})</string>
+			<string>(\{\{)\s*([a-zA-z][\w\.]+)\s*(\}\})</string>
 			<key>name</key>
 			<string>meta.scope.expression.jinja</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(\{\{)\s*(?:([a-zA-z]\w+)\s*(\|))?</string>
+			<string>(\{\{)\s*(?:([a-zA-z][\w\.]+)\s*(\|))?</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

@@ -7,14 +7,14 @@ uuid: f1b9db88-d5a0-4ca3-8da3-df4617983f0f
 
 patterns:
 - name: meta.scope.expression.jinja
-  match: (\{\{)\s*([a-zA-z]\w+)\s*(\}\})
+  match: (\{\{)\s*([a-zA-z][\w\.]+)\s*(\}\})
   captures:
     '1': {name: entity.other.jinja.delimiter.variable}
     '2': {name: variable.other.jinja}
     '3': {name: entity.other.jinja.delimiter.variable}
 
 - name: meta.scope.expression.jinja
-  begin: (\{\{)\s*(?:([a-zA-z]\w+)\s*(\|))?
+  begin: (\{\{)\s*(?:([a-zA-z][\w\.]+)\s*(\|))?
   beginCaptures:
     '1': {name: entity.other.jinja.delimiter.variable}
     '2': {name: variable.other.jinja}
