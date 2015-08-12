@@ -7,8 +7,10 @@ This package provides syntax highlighting for Sublime Text 2 and 3.
 To install this package, please do:
 
 ```
-wget -O Ansible.tmLanguage https://raw.githubusercontent.com/pchaigno/sublime-ansible/master/Ansible.tmLanguage
-mv Ansible.tmLanguage ~/.config/sublime-text-2/Packages/User/
+cd /tmp
+wget -O sublime-ansible.tar.gz http://github.com/pchaigno/sublime-ansible/tarball/master
+tar -xzvf sublime-ansible.tar.gz
+mv pchaigno-sublime-ansible-*/*.tmLanguage ~/.config/sublime-text-2/Packages/User/
 ```
 
 ## License
