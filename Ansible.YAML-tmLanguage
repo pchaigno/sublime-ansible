@@ -25,6 +25,13 @@ patterns:
   captures:
     '1': {name: keyword.other.ansible}
     '2': {name: entity.name.function.ansible}
+  
+- match: ^\s*(when):\s+([a-zA-z][\w\.]+)\s*(\|)\s*(failed|changed|success|skipped)\b
+  captures:
+    '1': {name: keyword.other.ansible}
+    '2': {name: variable.other.jinja}
+    '3': {name: keyword.operator.ansible.jinja}
+    '4': {name: support.function.ansible.jinja}
 
 - match: ^\s*(?:- )?(?!name|include)(\w+):\s
   captures:

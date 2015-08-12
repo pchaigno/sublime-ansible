@@ -71,6 +71,33 @@
 					<key>name</key>
 					<string>keyword.other.ansible</string>
 				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.other.jinja</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.ansible.jinja</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.ansible.jinja</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>^\s*(when):\s+([a-zA-z][\w\.]+)\s*(\|)\s*(failed|changed|success|skipped)\b</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.ansible</string>
+				</dict>
 			</dict>
 			<key>match</key>
 			<string>^\s*(?:- )?(?!name|include)(\w+):\s</string>
